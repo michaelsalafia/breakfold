@@ -22,13 +22,22 @@ Linux
 
 `apt-get install tor`
 
+Tor needs a password to authenticate. This password will be used by the script to issue a NEWNYM and will the hash value will be saved in in your torrc. 
+Generate a hashed password with this command. 
+`tor --hash-password "my_password"`
+
+Hint: You have to use the quotations. 
+Hint: If you are have trouble authenticating, try generating a blank password and updating your torrc with the hash. 
 Now open tor configuration file it is usually located in /etc/tor/torrc and uncomment following lines.
 
 `ControlPort 9051`
 
 `HashedControlPassword "your password"`
 
+Hint: HashedControlPassword "your password" is the hash value. Do not litterally type your password.
+
 Save the file and exit.
+`CTRL X, Y, Return`
 
 `service tor restart`
 
